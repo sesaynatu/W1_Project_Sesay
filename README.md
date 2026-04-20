@@ -1,4 +1,4 @@
-# SecureTrack - Week 1 Project
+# SecureTrack - Week 2 Project
 
 This project is a Java-based security tracking system that demonstrates:
 - Inheritance
