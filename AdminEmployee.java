@@ -4,6 +4,8 @@
  * Assignment: SDC330L Project Week 1 - Inheritance, Composition, and User Interactions
  * Description: Derived class that represents an admin employee and demonstrates polymorphism.
  */
+
+// Inheritance: AdminEmployee extends Employee to represent administrative users
 public class AdminEmployee extends Employee {
     private String department;
 

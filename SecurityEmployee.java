@@ -4,6 +4,8 @@
  * Assignment: SDC330L Project Week 1 - Inheritance, Composition, and User Interactions
  * Description: Derived class that extends Employee and adds access level for security tracking.
  */
+
+// Inheritance: SecurityEmployee extends Employee to represent restricted access users
 public class SecurityEmployee extends Employee {
     private String accessLevel;
 

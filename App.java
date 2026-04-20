@@ -1,9 +1,9 @@
 /**
  * Name: Taphanatu Sesay
- * Date: 04/12/2026
- * Assignment: SDC330L Project Week 1 - Inheritance, Composition, and User Interactions
+ * Date: 04/19/2026
+ * Assignment: SDC330L Project Week 2 - Interfaces & Polymorphism
  * Description: Main application file that displays menu options, accepts user input,
- * and demonstrates system functionality for SecureTrack.
+ * and demonstrates polymorphism and interface usage for SecureTrack system.
  */
 
 import java.util.Scanner;
@@ -35,11 +35,14 @@ public class App {
                     System.out.print("Enter ID: ");
                     int id = input.nextInt();
                     input.nextLine();
+                    
+
 
                     System.out.print("Enter Access Level: ");
                     String access = input.nextLine();
 
-                    SecurityEmployee emp = new SecurityEmployee(name, id, access);
+                    // Polymorphism: using Employee reference to store a SecurityEmployee object
+                    Employee emp = new SecurityEmployee(name, id, access);
                     system.addEmployee(emp);
                     break;
 

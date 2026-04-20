@@ -4,6 +4,8 @@
  * Assignment: SDC330L Project Week 1 - Inheritance, Composition, and User Interactions
  * Description: Class used to represent system activity logs for tracking user actions.
  */
+
+// Interface implementation: ActivityLog implements Trackable to define tracking behavior
 public class ActivityLog implements Trackable {
 
     private String action;
