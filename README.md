@@ -1,44 +1,49 @@
-# SecureTrack - Week 3 Class Implementation
+# 3.2 Project – Abstraction, Constructors, & Access Specifiers
 
-This project is a Java-based security tracking system that now includes full class implementation using Object-Oriented Programming (OOP) principles. The system demonstrates how real-world applications are built using structured classes, relationships, and reusable code.
-
-## Features
-
-- Create and manage customers
-- Manage employees
-- Schedule appointments
-- Handle services and payments
-- Display system information using console output
-
-## Week 3 Class Implementation
-
-This version of the SecureTrack system introduces:
-
-- Full implementation of Java classes
-- Use of constructors in all classes
-- Implementation of an abstract class (Person)
-- Implementation of an interface (Displayable)
-- Use of inheritance (Customer and Employee extend Person)
-- Use of polymorphism through method overriding
-- Use of composition (Appointment uses Customer, Employee, Service, and Payment)
-
-## Object-Oriented Concepts Used
-
-- **Inheritance:**
-  Customer and Employee classes extend the Person abstract class
-
-- **Polymorphism:**
-  A Person reference is used to call different implementations of displayInfo()
-
-- **Interface:**
-  Displayable interface is implemented by Service, Payment, and Appointment classes
-
-- **Abstraction:**
-  Person is an abstract class with an abstract method displayInfo()
-
-- **Composition:**
-  Appointment class contains Customer, Employee, Service, and Payment objects
-
-## Author
-
+## Name
 Taphanatu Sesay
+
+## Course
+Software Development
+
+## Date
+April 26, 2026
+
+---
+
+## Project Description
+This project demonstrates the use of abstraction, constructors, and access specifiers in Java. The application simulates a simple system called SecureTrack that manages client information and service requests.
+
+An abstract class `SystemUser` is used to define common properties such as name and user ID. The `Client` class extends this abstract class and provides its own implementation of the `displayInfo()` method. The `ServiceRequest` class stores and displays request-related information.
+
+Constructors are used to initialize objects with both default and specific values. Access specifiers (`private`, `protected`, and `public`) are used to control how data is accessed and modified within the program.
+
+---
+
+## Concepts Demonstrated
+
+### Abstraction
+- Implemented using the abstract class `SystemUser`
+- Includes an abstract method `displayInfo()` that must be implemented by subclasses
+
+### Constructors
+- Default constructors for creating objects with placeholder values
+- Parameterized constructors for initializing objects with real data
+
+### Access Specifiers
+- `private` used to protect sensitive data
+- `protected` used for inheritance access
+- `public` used for methods that need to be accessed outside the class
+
+---
+
+## Classes Included
+- `App.java` (Main class)
+- `SystemUser.java` (Abstract class)
+- `Client.java` (Derived class)
+- `ServiceRequest.java` (Data class)
+
+---
+
+## How to Run
+1. Compile all files:
