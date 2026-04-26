@@ -1,82 +1,45 @@
-/**
+/*
  * Name: Taphanatu Sesay
- * Date: 04/19/2026
- * Assignment: SDC330L Project Week 2 - Interfaces & Polymorphism
- * Description: Main application file that displays menu options, accepts user input,
- * and demonstrates polymorphism and interface usage for SecureTrack system.
+ * Course: Java Programming
+ * Assignment: 3.8 Course Project - Class Implementation
+ * Date: April 26, 2026
+ * Description: Main application class that runs the appointment management system.
  */
-
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        SecureTrackSystem system = new SecureTrackSystem();
 
-        int choice;
+        System.out.println("Appointment Management System");
+        System.out.println("------------------------------");
 
-        do {
-            System.out.println("\n=== SecureTrack Security System ===");
-            System.out.println("1. Add Employee");
-            System.out.println("2. View Employees");
-            System.out.println("3. Add Activity Log");
-            System.out.println("4. View Activity Logs");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            choice = input.nextInt();
+        Customer customer = new Customer(101, "Mary Johnson", "mary@email.com");
+        Employee employee = new Employee(201, "James Smith", "Receptionist");
+        Service service = new Service(301, "Consultation", 75.00);
+        Payment payment = new Payment(401, 75.00, "Paid");
 
-            switch (choice) {
-                case 1:
-                    input.nextLine();
+        Appointment appointment = new Appointment(501, customer, employee, service, payment, "04/26/2026");
 
-                    System.out.print("Enter Name: ");
-                    String name = input.nextLine();
+        System.out.println();
+        customer.displayInfo();
 
-                    System.out.print("Enter ID: ");
-                    int id = input.nextInt();
-                    input.nextLine();
-                    
+        System.out.println();
+        employee.displayInfo();
 
+        System.out.println();
+        service.display();
 
-                    System.out.print("Enter Access Level: ");
-                    String access = input.nextLine();
+        System.out.println();
+        payment.display();
 
-                    // Polymorphism: using Employee reference to store a SecurityEmployee object
-                    Employee emp = new SecurityEmployee(name, id, access);
-                    system.addEmployee(emp);
-                    break;
+        System.out.println();
+        appointment.display();
 
-                case 2:
-                    system.displayEmployees();
-                    break;
+        System.out.println();
+        System.out.println("Polymorphism Demonstration:");
+        Person person1 = customer;
+        Person person2 = employee;
 
-                case 3:
-                    input.nextLine();
-
-                    System.out.print("Enter Action: ");
-                    String action = input.nextLine();
-
-                    System.out.print("Enter Time: ");
-                    String time = input.nextLine();
-
-                    ActivityLog log = new ActivityLog(action, time);
-                    system.addLog(log);
-                    break;
-
-                case 4:
-                    system.displayLogs();
-                    break;
-
-                case 5:
-                    System.out.println("Exiting SecureTrack...");
-                    break;
-
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-
-        } while (choice != 5);
-
-        input.close();
+        person1.displayInfo();
+        person2.displayInfo();
     }
 }
