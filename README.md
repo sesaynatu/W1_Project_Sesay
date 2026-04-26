@@ -1,42 +1,43 @@
-# SecureTrack - Week 2 Project
+# SecureTrack - Week 3 Class Implementation
 
-This project is a Java-based security tracking system that demonstrates:
-
-- Inheritance
-- Composition
-- Polymorphism
-- Interface implementation
-- User interaction via console input/output
-
-## Week 2 Enhancements
-
-This version of the SecureTrack system introduces:
-
-- An interface (`Trackable`) to define tracking behavior
-- Implementation of the interface in the `ActivityLog` class
-- Use of polymorphism by storing a `SecurityEmployee` object using an `Employee` reference
-- Improved object-oriented design and code structure
+This project is a Java-based security tracking system that now includes full class implementation using Object-Oriented Programming (OOP) principles. The system demonstrates how real-world applications are built using structured classes, relationships, and reusable code.
 
 ## Features
 
-- Add employees
-- View employees
-- Add activity logs
-- View activity logs
+- Create and manage customers
+- Manage employees
+- Schedule appointments
+- Handle services and payments
+- Display system information using console output
+
+## Week 3 Class Implementation
+
+This version of the SecureTrack system introduces:
+
+- Full implementation of Java classes
+- Use of constructors in all classes
+- Implementation of an abstract class (Person)
+- Implementation of an interface (Displayable)
+- Use of inheritance (Customer and Employee extend Person)
+- Use of polymorphism through method overriding
+- Use of composition (Appointment uses Customer, Employee, Service, and Payment)
 
 ## Object-Oriented Concepts Used
 
-- **Inheritance:**  
-  `SecurityEmployee` and `AdminEmployee` extend the base `Employee` class
+- **Inheritance:**
+  Customer and Employee classes extend the Person abstract class
 
-- **Polymorphism:**  
-  An `Employee` reference is used to store a `SecurityEmployee` object
+- **Polymorphism:**
+  A Person reference is used to call different implementations of displayInfo()
 
-- **Interface:**  
-  `Trackable` interface is implemented by `ActivityLog` to define tracking behavior
+- **Interface:**
+  Displayable interface is implemented by Service, Payment, and Appointment classes
 
-- **Composition:**  
-  `SecureTrackSystem` manages collections of employees and activity logs
+- **Abstraction:**
+  Person is an abstract class with an abstract method displayInfo()
+
+- **Composition:**
+  Appointment class contains Customer, Employee, Service, and Payment objects
 
 ## Author
 
