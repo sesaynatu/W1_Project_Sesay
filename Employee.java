@@ -1,27 +1,34 @@
-/*
+/**********************************************************************
  * Name: Taphanatu Sesay
- * Course: Java Programming
- * Assignment: 3.8 Course Project - Class Implementation
- * Date: April 26, 2026
- * Description: Employee class that inherits from the Person abstract class.
- */
+ * Date: April 30, 2026
+ * Assignment: SDC330 Week 4 Project - Database Interactions
+ *
+ * Purpose:
+ * This class represents one employee record.
+ **********************************************************************/
 
-public class Employee extends Person {
-    private String position;
+public class Employee {
+    public int ID;
+    public String FirstName;
+    public String LastName;
+    public String Position;
+    public int Age;
 
-    public Employee(int id, String name, String position) {
-        super(id, name);
-        this.position = position;
+    public Employee(int id, String firstName, String lastName, String position, int age) {
+        ID = id;
+        FirstName = firstName;
+        LastName = lastName;
+        Position = position;
+        Age = age;
     }
 
-    @Override
-    public void displayInfo() {
-        System.out.println("Employee ID: " + id);
-        System.out.println("Employee Name: " + name);
-        System.out.println("Position: " + position);
+    public Employee(String firstName, String lastName, String position, int age) {
+        FirstName = firstName;
+        LastName = lastName;
+        Position = position;
+        Age = age;
     }
 
-    public String getPosition() {
-        return position;
+    public Employee() {
     }
 }

@@ -1,69 +1,78 @@
-/**
+/**********************************************************************
  * Name: Taphanatu Sesay
- * Course: SDC330
- * Assignment: 4.6 Course Project - Database Implementation
  * Date: April 30, 2026
- * Description: Main application demonstrating database functionality.
- */
+ * Assignment: SDC330 Week 4 Project - Database Interactions
+ *
+ * Purpose:
+ * Main application class for an Employee Management System.
+ * This program demonstrates database CRUD operations using SQLite.
+ **********************************************************************/
+
+import java.sql.Connection;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        System.out.println("Taphanatu Sesay - Course Project Database");
+        final String dbName = "TaphanatuSesayProject.db";
 
-        DatabaseHelper db = new DatabaseHelper();
+        System.out.println("\nTaphanatu Sesay, Week 4 Database Interactions Project\n");
 
-        db.createTable();
-        db.clearTable();
+        System.out.println("Welcome to the Employee Management System.");
+        System.out.println("This program demonstrates how to add, view, update, and delete employee records.\n");
 
-        db.insert(new Address(1, "123 Apple Tree Ln", "", "Fremont", "NC", 23145));
-        db.insert(new Address(2, "321 Labrador Dr", "Apt 5", "Greenville", "VA", 42321));
-        db.insert(new Address(3, "916 Spring Grove St", "Unit 3", "Spring", "TX", 73915));
-        db.insert(new Address(4, "739 Green Way", "", "Flynt", "MI", 28537));
+        Connection conn = SQLiteDatabase.connect(dbName);
 
-        System.out.println("\nAll Addresses:");
-        for (Address address : db.getAll()) {
-            printAddress(address);
-        }
+        if (conn != null) {
+            if (EmployeeDB.createTable(conn)) {
 
-        System.out.println("\nGetting Address using invalid ID:");
-        Address invalidAddress = db.getById(999);
+                // Clear old data so employees do not duplicate each time the program runs
+                Statement clear = conn.createStatement();
+                clear.execute("DELETE FROM Employees");
 
-        if (invalidAddress == null) {
-            System.out.println("No matching address found.");
-        } else {
-            printAddress(invalidAddress);
-        }
+                // Create
+                EmployeeDB.addEmployee(conn, new Employee("Taphanatu", "Sesay", "Cybersecurity Analyst", 21));
+                EmployeeDB.addEmployee(conn, new Employee("John", "Smith", "Software Developer", 45));
+                EmployeeDB.addEmployee(conn, new Employee("Jane", "Jones", "Database Administrator", 24));
+                EmployeeDB.addEmployee(conn, new Employee("Joe", "Diffy", "IT Support Specialist", 61));
 
-        System.out.println("\nUpdating Address 2:");
-        db.update(new Address(2, "321 Labrador St", "Apt 12", "Greendale", "TN", 20194));
+                // Read
+                System.out.println("=== ALL EMPLOYEES IN THE DATABASE ===");
+                printEmployees(EmployeeDB.getAllEmployees(conn));
 
-        Address updatedAddress = db.getById(2);
+                // Invalid ID search
+                System.out.println("\n=== SEARCH EMPLOYEE USING INVALID ID ===");
+                printEmployee(EmployeeDB.getEmployee(conn, -5));
 
-        if (updatedAddress != null) {
-            printAddress(updatedAddress);
-        } else {
-            System.out.println("Updated address not found.");
-        }
+                // Update
+                Employee employeeToUpdate = new Employee(2, "James", "Smith", "Senior Software Developer", 37);
+                EmployeeDB.updateEmployee(conn, employeeToUpdate);
 
-        System.out.println("\nDeleting Address 2:");
-        db.delete(2);
+                System.out.println("\n=== UPDATED EMPLOYEE ===");
+                printEmployee(EmployeeDB.getEmployee(conn, employeeToUpdate.ID));
 
-        System.out.println("\nAll Addresses after deletion:");
-        for (Address address : db.getAll()) {
-            printAddress(address);
+                // Delete
+                EmployeeDB.deleteEmployee(conn, employeeToUpdate.ID);
+
+                System.out.println("\n=== EMPLOYEES AFTER DELETE ===");
+                printEmployees(EmployeeDB.getAllEmployees(conn));
+
+                System.out.println("\nProgram completed successfully.");
+            }
         }
     }
 
-    public static void printAddress(Address address) {
-        System.out.println("Address #" + address.getId());
-        System.out.println(address.getStreet1());
-
-        if (!address.getStreet2().isEmpty()) {
-            System.out.println(address.getStreet2());
+    private static void printEmployees(ArrayList<Employee> employees) {
+        for (Employee e : employees) {
+            printEmployee(e);
         }
+    }
 
-        System.out.println(address.getCity() + ", " + address.getState() + " " + address.getZip());
-        System.out.println();
+    private static void printEmployee(Employee e) {
+        System.out.print("Employee " + e.ID + ": ");
+        System.out.print(e.FirstName + " " + e.LastName);
+        System.out.print(" works as a " + e.Position);
+        System.out.print(" and is " + e.Age + " years old.\n");
     }
 }
