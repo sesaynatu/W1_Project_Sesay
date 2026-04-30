@@ -1,49 +1,66 @@
-# 3.2 Project – Abstraction, Constructors, & Access Specifiers
+# 4.6 Course Project – Database Implementation
 
 ## Name
 Taphanatu Sesay
 
 ## Course
-Software Development
+Software Development (SDC330)
 
 ## Date
-April 26, 2026
+April 30, 2026
 
 ---
 
 ## Project Description
-This project demonstrates the use of abstraction, constructors, and access specifiers in Java. The application simulates a simple system called SecureTrack that manages client information and service requests.
+This project demonstrates the implementation of database support in a Java application using SQLite. The application stores and manages address records, allowing users to perform CRUD operations (Create, Read, Update, Delete).
 
-An abstract class `SystemUser` is used to define common properties such as name and user ID. The `Client` class extends this abstract class and provides its own implementation of the `displayInfo()` method. The `ServiceRequest` class stores and displays request-related information.
-
-Constructors are used to initialize objects with both default and specific values. Access specifiers (`private`, `protected`, and `public`) are used to control how data is accessed and modified within the program.
+The system connects to a SQLite database and creates a table to store address information, including street address, city, state, and zip code. The application allows inserting new records, retrieving all records, searching for a record by ID, updating existing records, and deleting records.
 
 ---
 
 ## Concepts Demonstrated
 
-### Abstraction
-- Implemented using the abstract class `SystemUser`
-- Includes an abstract method `displayInfo()` that must be implemented by subclasses
+### Database Integration
+- Connected Java application to a SQLite database
+- Created a database table if it does not already exist
+- Stored structured data in the database
 
-### Constructors
-- Default constructors for creating objects with placeholder values
-- Parameterized constructors for initializing objects with real data
+### CRUD Operations
+- Insert records into the database
+- Retrieve all records from the database
+- Retrieve a specific record using an ID
+- Update an existing record
+- Delete a record from the database
 
-### Access Specifiers
-- `private` used to protect sensitive data
-- `protected` used for inheritance access
-- `public` used for methods that need to be accessed outside the class
+### Object-Oriented Programming
+- Used classes to represent data (Address class)
+- Separated database logic into a helper class (DatabaseHelper)
+- Organized application flow in the main class (App)
 
 ---
 
 ## Classes Included
-- `App.java` (Main class)
-- `SystemUser.java` (Abstract class)
-- `Client.java` (Derived class)
-- `ServiceRequest.java` (Data class)
+
+- **App.java** (Main class)  
+  Handles program execution and demonstrates all database operations.
+
+- **Address.java** (Model class)  
+  Represents the structure of an address record.
+
+- **DatabaseHelper.java** (Database class)  
+  Manages database connection and performs CRUD operations.
 
 ---
 
 ## How to Run
-1. Compile all files:
+
+1. Open the project in Visual Studio Code
+2. Ensure the SQLite JDBC driver is added to referenced libraries
+3. Run `App.java`
+4. View output in the terminal
+
+---
+
+## Summary
+
+This project successfully integrates database functionality into a Java application. It demonstrates how to manage data using SQLite and perform essential CRUD operations, which are critical for real-world software development.
