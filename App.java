@@ -1,78 +1,81 @@
-/**********************************************************************
+/**
  * Name: Taphanatu Sesay
- * Date: April 30, 2026
- * Assignment: SDC330 Week 4 Project - Database Interactions
- *
- * Purpose:
- * Main application class for an Employee Management System.
- * This program demonstrates database CRUD operations using SQLite.
- **********************************************************************/
+ * Date: May 8, 2026
+ * Assignment: SDC330 5.2 Project - Application Delivery
+ * Description: Final application delivery for the SecureTrack Security System.
+ */
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        SecureTrackSystem system = new SecureTrackSystem();
 
-        final String dbName = "TaphanatuSesayProject.db";
+        int choice;
 
-        System.out.println("\nTaphanatu Sesay, Week 4 Database Interactions Project\n");
+        do {
+            System.out.println("\n=== SecureTrack Security System ===");
+            System.out.println("1. Add Employee");
+            System.out.println("2. View Employees");
+            System.out.println("3. Add Activity Log");
+            System.out.println("4. View Activity Logs");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = input.nextInt();
 
-        System.out.println("Welcome to the Employee Management System.");
-        System.out.println("This program demonstrates how to add, view, update, and delete employee records.\n");
+            switch (choice) {
+                case 1:
+                    input.nextLine();
 
-        Connection conn = SQLiteDatabase.connect(dbName);
+                    System.out.print("Enter Name: ");
+                    String name = input.nextLine();
 
-        if (conn != null) {
-            if (EmployeeDB.createTable(conn)) {
+                    System.out.print("Enter ID: ");
+                    int id = input.nextInt();
+                    input.nextLine();
+                    
 
-                // Clear old data so employees do not duplicate each time the program runs
-                Statement clear = conn.createStatement();
-                clear.execute("DELETE FROM Employees");
 
-                // Create
-                EmployeeDB.addEmployee(conn, new Employee("Taphanatu", "Sesay", "Cybersecurity Analyst", 21));
-                EmployeeDB.addEmployee(conn, new Employee("John", "Smith", "Software Developer", 45));
-                EmployeeDB.addEmployee(conn, new Employee("Jane", "Jones", "Database Administrator", 24));
-                EmployeeDB.addEmployee(conn, new Employee("Joe", "Diffy", "IT Support Specialist", 61));
+                    System.out.print("Enter Access Level: ");
+                    String access = input.nextLine();
 
-                // Read
-                System.out.println("=== ALL EMPLOYEES IN THE DATABASE ===");
-                printEmployees(EmployeeDB.getAllEmployees(conn));
+                    // Polymorphism: using Employee reference to store a SecurityEmployee object
+                    Employee emp = new SecurityEmployee(name, id, access);
+                    system.addEmployee(emp);
+                    break;
 
-                // Invalid ID search
-                System.out.println("\n=== SEARCH EMPLOYEE USING INVALID ID ===");
-                printEmployee(EmployeeDB.getEmployee(conn, -5));
+                case 2:
+                    system.displayEmployees();
+                    break;
 
-                // Update
-                Employee employeeToUpdate = new Employee(2, "James", "Smith", "Senior Software Developer", 37);
-                EmployeeDB.updateEmployee(conn, employeeToUpdate);
+                case 3:
+                    input.nextLine();
 
-                System.out.println("\n=== UPDATED EMPLOYEE ===");
-                printEmployee(EmployeeDB.getEmployee(conn, employeeToUpdate.ID));
+                    System.out.print("Enter Action: ");
+                    String action = input.nextLine();
 
-                // Delete
-                EmployeeDB.deleteEmployee(conn, employeeToUpdate.ID);
+                    System.out.print("Enter Time: ");
+                    String time = input.nextLine();
 
-                System.out.println("\n=== EMPLOYEES AFTER DELETE ===");
-                printEmployees(EmployeeDB.getAllEmployees(conn));
+                    ActivityLog log = new ActivityLog(action, time);
+                    system.addLog(log);
+                    break;
 
-                System.out.println("\nProgram completed successfully.");
+                case 4:
+                    system.displayLogs();
+                    break;
+
+                case 5:
+                    System.out.println("Exiting SecureTrack...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
             }
-        }
-    }
 
-    private static void printEmployees(ArrayList<Employee> employees) {
-        for (Employee e : employees) {
-            printEmployee(e);
-        }
-    }
+        } while (choice != 5);
 
-    private static void printEmployee(Employee e) {
-        System.out.print("Employee " + e.ID + ": ");
-        System.out.print(e.FirstName + " " + e.LastName);
-        System.out.print(" works as a " + e.Position);
-        System.out.print(" and is " + e.Age + " years old.\n");
+        input.close();
     }
 }

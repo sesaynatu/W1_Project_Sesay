@@ -1,34 +1,19 @@
-/**********************************************************************
+/**
  * Name: Taphanatu Sesay
- * Date: April 30, 2026
- * Assignment: SDC330 Week 4 Project - Database Interactions
- *
- * Purpose:
- * This class represents one employee record.
- **********************************************************************/
-
+ * Date: May 8, 2026
+ * Assignment: SDC330 5.2 Project - Application Delivery
+ * Description: Final application delivery for the SecureTrack Security System.
+ */
 public class Employee {
-    public int ID;
-    public String FirstName;
-    public String LastName;
-    public String Position;
-    public int Age;
+    protected String name;
+    protected int id;
 
-    public Employee(int id, String firstName, String lastName, String position, int age) {
-        ID = id;
-        FirstName = firstName;
-        LastName = lastName;
-        Position = position;
-        Age = age;
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
     }
 
-    public Employee(String firstName, String lastName, String position, int age) {
-        FirstName = firstName;
-        LastName = lastName;
-        Position = position;
-        Age = age;
-    }
-
-    public Employee() {
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", ID: " + id);
     }
 }

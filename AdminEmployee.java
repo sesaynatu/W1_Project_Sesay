@@ -1,8 +1,8 @@
 /**
  * Name: Taphanatu Sesay
- * Date: 04/12/2026
- * Assignment: SDC330L Project Week 1 - Inheritance, Composition, and User Interactions
- * Description: Derived class that represents an admin employee and demonstrates polymorphism.
+ * Date: May 8, 2026
+ * Assignment: SDC330 5.2 Project - Application Delivery
+ * Description: Final application delivery for the SecureTrack Security System.
  */
 
 // Inheritance: AdminEmployee extends Employee to represent administrative users

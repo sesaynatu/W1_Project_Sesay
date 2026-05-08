@@ -1,8 +1,8 @@
 /**
  * Name: Taphanatu Sesay
- * Date: 04/12/2026
- * Assignment: SDC330L Project Week 1 - Inheritance, Composition, and User Interactions
- * Description: Derived class that extends Employee and adds access level for security tracking.
+ * Date: May 8, 2026
+ * Assignment: SDC330 5.2 Project - Application Delivery
+ * Description: Final application delivery for the SecureTrack Security System.
  */
 
 // Inheritance: SecurityEmployee extends Employee to represent restricted access users

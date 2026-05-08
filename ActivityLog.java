@@ -1,8 +1,8 @@
 /**
  * Name: Taphanatu Sesay
- * Date: 04/12/2026
- * Assignment: SDC330L Project Week 1 - Inheritance, Composition, and User Interactions
- * Description: Class used to represent system activity logs for tracking user actions.
+ * Date: May 8, 2026
+ * Assignment: SDC330 5.2 Project - Application Delivery
+ * Description: Final application delivery for the SecureTrack Security System.
  */
 
 // Interface implementation: ActivityLog implements Trackable to define tracking behavior
