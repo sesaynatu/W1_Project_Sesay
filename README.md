@@ -1,54 +1,84 @@
-# Week 4 Project – Database Interactions
+# 5.2 Project – Application Delivery
 
 ## Student Information
-- **Name:** Taphanatu Sesay  
-- **Course:** SDC330 – Java Programming  
-- **Assignment:** Week 4 Project – Database Interactions  
-- **Date:** April 30, 2026  
+
+- **Name:** Taphanatu Sesay
+- **Course:** SDC330 – Java Programming
+- **Assignment:** 5.2 Project – Application Delivery
+- **Date:** May 8, 2026
 
 ---
 
-## 📌 Project Overview
-This project demonstrates how to build a Java application that interacts with a SQLite database. The program performs full CRUD operations (Create, Read, Update, Delete) on employee records stored in the database.
+## Project Overview
 
-The application simulates a simple **Employee Management System** where users can add, view, update, and delete employee data.
+This final project demonstrates the development of the SecureTrack Security System application in Java. The application allows users to manage employees and maintain security activity logs through a menu-driven console application.
+
+The project combines concepts learned throughout the course, including object-oriented programming, inheritance, interfaces, polymorphism, constructors, access modifiers, collections, and file handling techniques.
 
 ---
 
-## ⚙️ Technologies Used
+## Features Included
+
+The application allows users to:
+
+- Add employees
+- View employees
+- Add activity logs
+- View activity logs
+- Store and manage security system information
+- Navigate through a menu-driven system
+
+---
+
+## Concepts Demonstrated
+
+### Inheritance
+- Employee superclass
+- SecurityEmployee and AdminEmployee subclasses
+
+### Polymorphism
+- Employee references used with subclass objects
+
+### Interfaces
+- Trackable interface implemented in the application
+
+### Constructors
+- Constructors used to initialize objects with values
+
+### Access Specifiers
+- Private and protected variables used for encapsulation
+
+### Collections
+- ArrayList used to store employee and activity log data
+
+### File Handling
+- Activity log management and application data processing
+
+---
+
+## Technologies Used
+
 - Java (JDK 11)
-- SQLite Database
-- SQLite JDBC Driver
 - Visual Studio Code
+- GitHub
+- Java Collections Framework
 
 ---
 
-## 🧠 Program Features
-The program performs the following operations:
+## Classes Included
 
-### ✅ Create
-- Adds multiple employees into the database
-
-### ✅ Read
-- Displays all employees stored in the database
-
-### ✅ Update
-- Updates an existing employee's information
-
-### ✅ Delete
-- Deletes an employee from the database
-
-### ✅ Error Handling
-- Handles invalid ID lookups (returns "Not Found")
+- App.java
+- Employee.java
+- SecurityEmployee.java
+- AdminEmployee.java
+- ActivityLog.java
+- Trackable.java
+- SecureTrackSystem.java
 
 ---
 
-## 🗂️ Project Structure
+## Program Functionality
 
-```text
-App.java              → Main application file
-SQLiteDatabase.java  → Handles database connection
-Employee.java        → Employee model (data structure)
-EmployeeDB.java      → Handles CRUD operations
+The application starts with a console menu that allows the user to select different actions. Users can create employee records, display employee information, create activity logs, and review activity logs through an organized system interface.
 
-This project successfully integrates database functionality into a Java application. It demonstrates how to manage data using SQLite and perform essential CRUD operations, which are critical for real-world software development.
+This project represents the final delivery version of the SecureTrack Security System application.
