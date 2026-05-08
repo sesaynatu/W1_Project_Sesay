@@ -82,3 +82,5 @@ The application allows users to:
 The application starts with a console menu that allows the user to select different actions. Users can create employee records, display employee information, create activity logs, and review activity logs through an organized system interface.
 
 This project represents the final delivery version of the SecureTrack Security System application.
+
+https://youtu.be/0T3GP_EZThM
